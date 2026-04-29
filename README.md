@@ -81,13 +81,7 @@ ORDER BY
     Date;
 ```
 
-
-
-
-
-
-
-
+<br>
 
 Hat Sale Section Revenue Per Store & Day
 
@@ -105,7 +99,7 @@ ORDER BY
   Date, 
   Location;
 ```
-
+<br>
 
 Gathering Data on Full-Price Hats Only
 ```SQL
