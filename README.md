@@ -1,18 +1,19 @@
 # Hat-Sale-Section-Analysis
 
 
-This is an anonymized version of a real report that I presented to management which led to (X) stores changing their sale section pricing structure, and led to the segments monthly sales increasing by X%. 
+The below displays the SQL queries used on an anonymized version of a real report that I presented to management which led to (X) stores changing their sale section pricing structure, and led to the segments monthly sales increasing by X%. 
 
 The full report can be viewed [here](https://docs.google.com/document/d/13WyTioV-JLnFqsjsWH5RaKfD5tZsQBvFkX1OmZiTm1Y/edit?tab=t.0)
 
 Tableau charts used in the report can be viewed [here](https://public.tableau.com/app/profile/jacob.perovich/viz/SaleSectionAnalysis/ProjectOverview)
 
 
+<br>
+
+## SQL Queries Used
 
 
-
-
-Gathering Data On Sale Hats Only
+### Gathering Data On Sale Hats Only
 
 ```SQL
 -- This query isolated data on sale hats only and was also used to create the ‘ClearanceSales’ Table.
@@ -84,7 +85,7 @@ ORDER BY
 <br>
 <br>
 
-Hat Sale Section Revenue Per Store & Day
+### Hat Sale Section Revenue Per Store & Day
 
 ```SQL
 SELECT
@@ -103,7 +104,7 @@ ORDER BY
 <br>
 <br>
 
-Gathering Data on Full-Price Hats Only
+### Gathering Data on Full-Price Hats Only
 ```SQL
 -- This query isolated data on full-price hats only and was also used to create the ‘FullPriceSales’ Table.
 
@@ -172,7 +173,7 @@ ORDER BY
 <br>
 
 
-Total Full-Price Hat Sales Per Day 
+### Total Full-Price Hat Sales Per Day 
 
 ```SQL
 SELECT
@@ -196,7 +197,7 @@ ORDER BY
 <br>
 <br>
 
-Setting Up Regression Model 
+### Setting Up Regression Model 
 ```SQL
 
 -- The purpose of this query was to gather the variables needed for our regression model to determine whether sale hat section revenue meaningfully declined after the pricing model change in August while keeping seasonality constant.
@@ -259,7 +260,7 @@ ORDER BY Date;
 <br>
 
 
-Average Monthly Hat Sale Section Revenue 
+### Average Monthly Hat Sale Section Revenue 
 ```SQL
 --This query was used to gather the average sales per month pre-pricing-change (Before 8/25) to later use in our annual sales projection.
 
@@ -294,7 +295,7 @@ ORDER BY
 <br>
 
 
-Monthly ATV
+### Monthly ATV
 ```SQL
 --Typical ATV calculation of total sales / total tickets was not used because the total number of tickets post-pricing-change also saw a decrease along with sales which normalized the resulting calculation.
 
@@ -332,7 +333,7 @@ ORDER BY
 <br>
 
 
-Tickets With 2+ Sale Hats 
+### Tickets With 2+ Sale Hats 
 ```SQL
 -- We first isolate transactions containing 2 or more sale hats by filtering our sale hat sales dataset to only show rows of sales that occurred when the quantity of the ticket is two or more.
 
@@ -383,7 +384,7 @@ ORDER BY
 <br>
 
 
-Multi-Quantity Vs Single-Quantity Sale Item Revenue Per Store & Day 
+### Multi-Quantity Vs Single-Quantity Sale Item Revenue Per Store & Day 
 ```SQL
 -- Querying our dataset of just sale hat revenue, we first totaled sales and quantity sold of each ticket, location, and day.
 WITH TicketsCombined AS (
