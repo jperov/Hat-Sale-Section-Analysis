@@ -82,6 +82,7 @@ ORDER BY
 ```
 
 <br>
+<br>
 
 Hat Sale Section Revenue Per Store & Day
 
@@ -99,6 +100,7 @@ ORDER BY
   Date, 
   Location;
 ```
+<br>
 <br>
 
 Gathering Data on Full-Price Hats Only
@@ -166,7 +168,8 @@ ORDER BY
     Date;
 ```
 
-
+<br>
+<br>
 
 
 Total Full-Price Hat Sales Per Day 
@@ -190,30 +193,8 @@ ORDER BY
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br>
+<br>
 
 Setting Up Regression Model 
 ```SQL
@@ -274,7 +255,8 @@ GROUP BY
 ORDER BY Date;
 ```
 
-
+<br>
+<br>
 
 
 Average Monthly Hat Sale Section Revenue 
@@ -308,9 +290,8 @@ ORDER BY
 ```
 
 
-
-
-
+<br>
+<br>
 
 
 Monthly ATV
@@ -347,9 +328,8 @@ ORDER BY
 
 
 
-
-
-
+<br>
+<br>
 
 
 Tickets With 2+ Sale Hats 
@@ -399,10 +379,8 @@ ORDER BY
     Location;
 ```
 
-
-
-
-
+<br>
+<br>
 
 
 Multi-Quantity Vs Single-Quantity Sale Item Revenue Per Store & Day 
