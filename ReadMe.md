@@ -27,7 +27,7 @@ WITH Cleaned_Data AS (
         Location,
         Payment_Methods,
         REPLACE(Product_Name, ' ', '_') AS Product_Name,
-        REPLACE((REPLACE(TRIM(Category, ' ', '_'), '/', ''))) AS Category,
+        REPLACE(REPLACE(TRIM(Category, ' ', '_'), '/', '')) AS Category,
         Selling_Price,
         Quantity,
         Discount,
