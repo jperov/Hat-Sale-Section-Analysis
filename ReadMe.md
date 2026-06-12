@@ -119,7 +119,7 @@ WITH Cleaned_Data AS (
         Location,
         Payment_Methods,
         REPLACE(Product_Name, ' ', '_') AS Product_Name,
-        TRIM((REPLACE(REPLACE(Category, ' ', '_'), '/', ''))) AS Category,
+        REPLACE(REPLACE(TRIM(Category, ' ', '_'), '/', '')) AS Category,
         Selling_Price,
         Quantity,
         Discount,
@@ -129,6 +129,8 @@ WITH Cleaned_Data AS (
         Portfolio_Data.Sales
     WHERE
         Date BETWEEN '2024-01-01' AND '2025-12-31'
+    AND
+        LOWER(Product_Name) <> 'gift_card'
 ),
 
 
