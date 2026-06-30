@@ -1,7 +1,7 @@
 # Hat-Sale-Section-Analysis
 
 
-The below displays the SQL queries used on an anonymized version of a real report I presented to management that led to 20 stores changing their sale section pricing strategy, and resulted in the segment's monthly revenue increasing by 25%. 
+Here you can find the SQL queries that were used on an anonymized version of a real report I presented to management that led to 20 stores changing their sale section pricing strategy, and resulted in the segment's monthly revenue increasing by 25%. 
 
 The full report can be viewed [here](https://docs.google.com/document/d/13WyTioV-JLnFqsjsWH5RaKfD5tZsQBvFkX1OmZiTm1Y/edit?tab=t.0)
 
