@@ -19,7 +19,7 @@ Tableau charts used in the report can be viewed [here](https://public.tableau.co
 -- This query isolated data on sale hats only and was also used to create the ‘ClearanceSales’ Table.
 
 
--- First, we cleaned the field names to proper names that SQL can read.
+-- First, the field names were cleaned and made consistent to proper names.
 WITH Cleaned_Data AS (
     SELECT
         Date,
