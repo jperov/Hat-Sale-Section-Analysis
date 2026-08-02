@@ -5,13 +5,13 @@ Our main goal was to determine if there was a statistically significant decrease
 
 <br>
 
-![original_data](images/original_data.png)
-
 ## Methods and Steps Taken:
 
 1. Our data began as item level transactions of all products from 2024 through 2025.
 
 **Example of data at this stage:**
+
+![original_data](images/original_data.PNG)
 
 <br>
 
@@ -30,16 +30,17 @@ Our main goal was to determine if there was a statistically significant decrease
 
 **Example Data Used for Regression Model:**
 
+![regresssion_input_data](images/regresssion_input_data.PNG)
 
 <br>
 
 3. Our new dataset was then imported into Excel.
 4. We then ran our regression using the Excel add in “data analysis tool pak”. Net sales was used as our Y variable, and all other fields were used as X variables. Running regression produced the following initial result:
 
+![initial_regression_output](images/initial_regression_output.PNG)
 
 <br>
   
-
 When running a regression with time series data, it is good practice to test for autocorrelation which, if present, can produce results that are less precise. We tested for autocorrelation using the Durbin-Watson test which tests whether the errors in one period predict errors in the next.
 
 5. **To perform the Durbin-Watson test we took the following steps:**
@@ -50,11 +51,11 @@ When running a regression with time series data, it is good practice to test for
 
  **Example Data Used To Conduct Durbin Watson Test:**
 
+![durbin_watson_data_example](images/durbin_watson_data_example.PNG)
 
 
 <br>
 
-<br>
 
 
 The results of our test indicated positive autocorrelation (0.86) which means the result of our initial regression was invalid. To produce a more accurate regression result we used the Cochrane–Orcutt Procedure, which corrects for autocorrelation.
