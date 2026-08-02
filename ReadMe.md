@@ -41,36 +41,33 @@ Insights and recommendations were compiled into a report and presented to leader
 ## SQL Queries Used
 
 
-### Gathering Data On Sale Hats Only
+### Gathering Data on Sale Hats Only
 
 ```SQL
--- This query isolated data on sale hats only and was also used to create the ‘ClearanceSales’ Table.
+-- This query filtered all item-level transaction data to sale hats only, and was also used to create the ‘ClearanceSales’ table.
 
 
--- First, the field names were cleaned and made consistent to proper names.
+-- Field names were cleaned to consistent formatting.
 WITH Cleaned_Data AS (
     SELECT
         Date,
-        Ticket_Id,
+        `Ticket #` AS Ticket_Id,
         Location,
-        Payment_Methods,
-        REPLACE(Product_Name, ' ', '_') AS Product_Name,
-        REPLACE(REPLACE(TRIM(Category, ' ', '_'), '/', '')) AS Category,
-        Selling_Price,
+        REPLACE(`Product Name`, ' ', '_') AS Product_Name,
+        REPLACE(REPLACE(TRIM(Category), ' ', '_'), '/', '') AS Category,
         Quantity,
-        Discount,
         Tax,
-        Net_Sales
+        `Net Sales_ _` AS Net_Sales
     FROM
         `Portfolio_Data.Sales`
     WHERE
-        Date BETWEEN '2024-01-01' AND '2025-12-31'
+        (Date BETWEEN '2024-01-01' AND '2025-12-31')
     AND
-        LOWER(Product_Name) <> 'gift_card'
+        (LOWER(Product_Name) <> 'gift_card')
 ),
 
 
--- This block filters for hat categories only and filters out special product names that have a typical price that is the same as our sale section while keeping instances where those products were discounted.
+-- This block filters for hat categories only, and filters out product names that have a normal price point that is the same as our sale section price while preserving instances where those products were discounted.
 Categories AS (
     SELECT
         *
@@ -82,31 +79,27 @@ Categories AS (
             'UNSTRUCTURED_ADJ', 'FITTED', 'FLEXONE_FITS', 'STRUCTURED_ADJ', 'VISOR')
         AND
         (Product_Name NOT IN (
-                'Special_Product1', 'Special_Product2', 'Special_Product3')
+            'Special_Product1', 'Special_Product2', 'Special_Product3')
             OR Discount > 0
         )
         AND Net_Sales > 17
 )
 
 
--- Our dataset's ‘discount’ field often shows $0 for items that are real sale hat transactions, so we had to find another way to isolate sale hat data. The solution was to filter our results to only show data where the total sales at each quantity sold could only be at or lower than the sale section price point ( "Net_Sales < (Quantity * 42)" ).
+-- We found that our dataset's ‘discount’ field often shows $0 for items that are real sale hat transactions, making the field unreliable to filter for sale hats. Due to this limitation, we had to find another way to isolate sale hat data. The solution was to filter our results to only show data where the total sales at each quantity sold could only be at or lower than the sale section price point ("Net_Sales < (Quantity * 42)").
+
 SELECT
     Date,
     Location,
     Product_Name,
     Category,
-    Payment_Methods,
     Ticket_Id,
-    Selling_Price,
     Quantity,
-    Discount,
-    Tax,
     Net_Sales,
 FROM
     Categories
 WHERE
     Net_Sales < (Quantity * 42)
-
 
 ORDER BY
     Date;
@@ -136,29 +129,25 @@ ORDER BY
 
 ### Gathering Data on Full-Price Hats Only
 ```SQL
--- This query isolated data on full-price hats only and was also used to create the ‘FullPriceSales’ Table.
+-- This query filtered all item-level transaction data to full-price hats only, and was also used to create the ‘FullPriceSales’ table.
 
-
--- First, we cleaned field names to proper names that SQL can read.
+-- First, field names were cleaned to consistent formatting.
 WITH Cleaned_Data AS (
     SELECT
         Date,
-        Ticket_Id,
+        `Ticket #` AS Ticket_Id,
         Location,
-        Payment_Methods,
-        REPLACE(Product_Name, ' ', '_') AS Product_Name,
-        REPLACE(REPLACE(TRIM(Category, ' ', '_'), '/', '')) AS Category,
-        Selling_Price,
+        REPLACE(`Product Name`, ' ', '_') AS Product_Name,
+        REPLACE(REPLACE(TRIM(Category), ' ', '_'), '/', '') AS Category,
         Quantity,
-        Discount,
         Tax,
-        Net_Sales
+        `Net Sales_ _` AS Net_Sales
     FROM
         Portfolio_Data.Sales
     WHERE
-        Date BETWEEN '2024-01-01' AND '2025-12-31'
+        (Date BETWEEN '2024-01-01' AND '2025-12-31')
     AND
-        LOWER(Product_Name) <> 'gift_card'
+        (LOWER(Product_Name) <> 'gift_card')
 ),
 
 
@@ -173,20 +162,15 @@ Categories AS (
             'SNAPBACK', 'ROPER', 'A_FRAME', 'BUCKET', 'HATS',
             'UNSTRUCTURED_ADJ', 'FITTED', 'FLEXONE_FITS', 'STRUCTURED_ADJ', 'VISOR')
 )
--- Due to our discount column frequently showing $0 even for sale items we couldn't use it to isolate full price hats. The solution was to filter our data to only show items that had a sale price that was above the sale section threshold or were a special product name whose typical price was less than the sale section threshold but had no discount applied.
-
+-- Due to our discount column frequently showing $0 even for sale items, we couldn't use it to reliably isolate full-price hats. The solution was to filter our data to only show items that had a sale price that was above the sale section threshold.
 
 SELECT
     Date,
     Location,
     Product_Name,
     Category,
-    Payment_Methods,
     Ticket_Id,
-    Selling_Price,
     Quantity,
-    Discount,
-    Tax,
     Net_Sales
 FROM
     Categories
@@ -195,7 +179,7 @@ WHERE
     OR (
         Product_Name IN (
             'Special_Product1', 'Special_Product2', 'Special_Product3')
-        AND Discount = 0
+            AND Discount = 0
     )
 ORDER BY
     Date;
@@ -239,45 +223,32 @@ SELECT
 Date,
 ROUND(SUM(Net_Sales),2) AS Net_Sales, -- Total sales per day
 ROW_NUMBER() OVER(order by date) AS Time_index, -- Running count of days from 2024 - 2025
-CASE WHEN Date >= '2025-08-01' THEN 1 ELSE 0 END AS After_Period, -- Assigns post-sale-section-pricing-change days with a 1 and pre-change with a 0.
-
+CASE WHEN Date >= '2025-08-01' THEN 1 ELSE 0 END AS After_Period, -- Assigns post-pricing-change days with a 1 and pre-change with a 0.
 
 -- The following columns assign a 1 to days in the corresponding month and a 0 otherwise so the regression can account for seasonality between months.
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%01-01%' THEN 1 ELSE 0 END AS Jan,
 
-
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%02-01%' THEN 1 ELSE 0 END AS Feb,
-
 
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%03-01%' THEN 1 ELSE 0 END AS Mar,
 
-
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%04-01%' THEN 1 ELSE 0 END AS Apr,
-
 
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%05-01%' THEN 1 ELSE 0 END AS May,
 
-
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%06-01%' THEN 1 ELSE 0 END AS Jun,
-
 
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%07-01%' THEN 1 ELSE 0 END AS July,
 
-
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%08-01%' THEN 1 ELSE 0 END AS Aug,
-
 
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%09-01%' THEN 1 ELSE 0 END AS Sep,
 
-
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%10-01%' THEN 1 ELSE 0 END AS Oct,
-
 
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%11-01%' THEN 1 ELSE 0 END AS Nov,
 
-
 CASE WHEN CAST(DATE_TRUNC(Date, MONTH) AS STRING) LIKE '%12-01%' THEN 1 ELSE 0 END AS Dec
-
 
 FROM
     `Portfolio_Data.ClearanceSales`
@@ -295,7 +266,6 @@ ORDER BY Date;
 ### Average Monthly Hat Sale Section Revenue 
 ```SQL
 --This query was used to gather the average sales per month pre-pricing-change (Before 8/25) to later use in our annual sales projection.
-
 
 WITH Base AS (
     SELECT
@@ -327,47 +297,10 @@ ORDER BY
 <br>
 
 
-### Monthly ATV
-```SQL
---Typical ATV calculation of total sales / total tickets was not used because the total number of tickets post-pricing-change also saw a decrease along with sales which normalized the resulting calculation.
-
-
-WITH Base AS (
-    SELECT
-        Date,
-        Ticket_Id,
-        SUM(Net_Sales) AS SalesPerTicket
-    FROM
-        Portfolio_Data.ClearanceSales
-    GROUP BY
-        Ticket_Id,
-        Date
-)
-
-
-SELECT
-    DATE_TRUNC(Date, MONTH) AS Date,
-    ROUND(AVG(SalesPerTicket), 2) AS ATV
-FROM
-    Base
-GROUP BY
-    DATE_TRUNC(Date, MONTH)
-ORDER BY
-    Date;
-```
-
-
-
-
-
-
-<br>
-<br>
-
 
 ### Tickets With 2+ Sale Hats 
 ```SQL
--- We first isolate transactions containing 2 or more sale hats by filtering our sale hat sales dataset to only show rows of sales that occurred when the quantity of the ticket is two or more.
+-- First, we isolated transactions containing 2 or more sale hats by filtering our sale hat sales dataset to only show rows of sales that occurred when the quantity of the ticket is two or more.
 
 WITH TwoPlusHatTickets AS (
     SELECT
@@ -386,7 +319,7 @@ WITH TwoPlusHatTickets AS (
 ),
 
 
--- We then gather the total number of tickets containing 2+ sale hats per store and day.
+-- Next, we gathered the total number of tickets containing 2+ sale hats per store and day.
 Total2PlusTickets AS (
     SELECT
         Location,
