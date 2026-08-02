@@ -1,27 +1,27 @@
 ## This Page Includes:
-* Project Overview
-* Dataset & Preparation
+* Analysis Project Overview
+* Dataset & Preparation Steps Taken
 * SQL Queries Used
 
 <br>
 
-To view regression model setup and execution details, click [here](./Hat-Sale-Section-Analysis/Regression-Setup-&-Execution.md)
+To view regression model setup and execution details, click [here](./Regression-Setup-&-Execution.md)
 
 
-The full executive report can be viewed  [here](https://docs.google.com/document/d/13WyTioV-JLnFqsjsWH5RaKfD5tZsQBvFkX1OmZiTm1Y/edit?tab=t.0)
+To view the full executive report click [here](https://docs.google.com/document/d/13WyTioV-JLnFqsjsWH5RaKfD5tZsQBvFkX1OmZiTm1Y/edit?tab=t.0)
 
 <br>
 
 
 ## Project Overview
 
-In August of 2025, the pricing model of the hat sale section was changed company-wide from a BOGO model, to flat-priced sections.
+In August 2025, the pricing model of the hat sale section was changed company-wide from a BOGO model, to flat-priced sections.
 
-Sales performance data across all stores was analyzed to determine if this change had an impact on revenue. SQL was used for data gathering, Tableau for visualization and analysis, and Excel for regression modeling. 
+Sales performance data across all stores was analyzed to determine whether this change had an impact on revenue. SQL was used for data gathering, Tableau for visualization and analysis, and Excel for regression modeling. 
 
-Analysis identified a significant decline in sale hat section revenue post-change, finding the primary driver to be the removal of the BOGO pricing model which reduced the number of multi-item purchases that were fueling sales.
+The analysis identified a significant decline in sale hat section revenue following the change and found the primary driver to be the removal of the BOGO pricing model, which reduced the number of multi-item purchases that were fueling sales.
 
-Insights and recommendations were gathered in a report and presented to leadership that influenced the decision to revise the pricing model company-wide. Performance monitoring was put in place and showed a sustained 25% increase in monthly revenue. This success led to the model being permanently implemented.
+Insights and recommendations were compiled into a report and presented to leadership, influencing the decision to revise the pricing model company-wide. Performance monitoring was put in place and showed a sustained 25% increase in monthly revenue. This success led to the model being permanently adopted.
 
 <br>
 
