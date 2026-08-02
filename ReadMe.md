@@ -1,11 +1,44 @@
-# Hat-Sale-Section-Analysis
+## This Page Includes:
+* Project Overview
+* Dataset & Preparation
+* SQL Queries Used
+
+<br>
+
+To view regression model setup and execution details, click [here](./Hat-Sale-Section-Analysis/Regression-Setup-&-Execution.md)
 
 
-Here you can find the SQL queries that were used on an anonymized version of a real report I presented to management that led to 20 stores changing their sale section pricing strategy, and resulted in the segment's monthly revenue increasing by 25%. 
+The full executive report can be viewed  [here](https://docs.google.com/document/d/13WyTioV-JLnFqsjsWH5RaKfD5tZsQBvFkX1OmZiTm1Y/edit?tab=t.0)
 
-The full report can be viewed [here](https://docs.google.com/document/d/13WyTioV-JLnFqsjsWH5RaKfD5tZsQBvFkX1OmZiTm1Y/edit?tab=t.0)
+<br>
 
-Tableau charts used in the report can be viewed [here](https://public.tableau.com/app/profile/jacob.perovich/viz/SaleSectionAnalysis/ProjectOverview)
+
+## Project Overview
+
+In August of 2025, the pricing model of the hat sale section was changed company-wide from a BOGO model, to flat-priced sections.
+
+Sales performance data across all stores was analyzed to determine if this change had an impact on revenue. SQL was used for data gathering, Tableau for visualization and analysis, and Excel for regression modeling. 
+
+Analysis identified a significant decline in sale hat section revenue post-change, finding the primary driver to be the removal of the BOGO pricing model which reduced the number of multi-item purchases that were fueling sales.
+
+Insights and recommendations were gathered in a report and presented to leadership that influenced the decision to revise the pricing model company-wide. Performance monitoring was put in place and showed a sustained 25% increase in monthly revenue. This success led to the model being permanently implemented.
+
+<br>
+
+## Dataset
+
+* **Source:** item-level sales transactions across all stores (from POS provider)
+* **Time Period:** 2024 - 2025
+* **Number of rows:** 1.1M
+
+<br>
+
+**Original Schema:**
+
+<img src="images/schema.PNG" width="200" alt="schema">
+
+
+**Preparation:** Data was extracted from the POS provider and loaded into BigQuery. Details on the specific SQL queries used to clean and wrangle data used for analysis can be found below.
 
 
 <br>
