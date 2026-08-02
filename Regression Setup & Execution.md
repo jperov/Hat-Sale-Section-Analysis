@@ -53,12 +53,11 @@ When running a regression with time series data, it is good practice to test for
 
 ![durbin_watson_data_example](images/durbin_watson_data_example.PNG)
 
+<img src="images/durbin_watson_calculations.PNG" width="300" alt="durbin_watson_calculations">
 
 <br>
 
-
-
-The results of our test indicated positive autocorrelation (0.86) which means the result of our initial regression was invalid. To produce a more accurate regression result we used the Cochrane–Orcutt Procedure, which corrects for autocorrelation.
+The results of our test indicated positive autocorrelation **0.86** which means the result of our initial regression was invalid. To produce a more accurate regression result we used the Cochrane–Orcutt Procedure, which corrects for autocorrelation.
 
 6. **To perform the Cochrane–Orcut procedure we took the following steps:**
     1. First, we ran a new Excel regression using our original outputs residuals as our Y variable and our lagged residuals as our X variable. This produced a slope coefficient (p^ rho) of **0.569** in our case.
@@ -91,11 +90,12 @@ The results of our test indicated positive autocorrelation (0.86) which means th
 
 **Running a regression on these transformed variables produced the following result:**
 
+![fixed_regression_output](images/fixed_regression_output.PNG)
 
 <br>
 
 We then repeated the Durbin-Watson test on our new regression results to determine if autocorrelation still exists. This time, our resulting Durbin-Watson statistic was **1.63** which is within the threshold for no autocorrelation, meaning we can use our results.
 
 
-This was the series of steps taken to arrive at our conclusion of daily sales in the sale hat section being, on average, $1074 lower after the sale hat pricing change was implemented.
+This was the series of steps taken to arrive at our conclusion of daily sales in the sale hat section being, on average, **$1074** lower after the sale hat pricing change was implemented.
 
