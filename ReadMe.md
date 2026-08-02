@@ -351,7 +351,7 @@ ORDER BY
 
 ### Multi-Quantity Vs Single-Quantity Sale Item Revenue Per Store & Day 
 ```SQL
--- Querying our dataset of just sale hat revenue, we first totaled sales and quantity sold of each ticket, location, and day.
+-- Querying our dataset of just sale hats, we first totaled sales and quantity sold of each ticket, location, and day.
 WITH TicketsCombined AS (
     SELECT
         Location,
@@ -366,8 +366,7 @@ WITH TicketsCombined AS (
         Date
 ),
 
-
--- Case statements were used to gather total sales of sale hats when only 1 hat was sold as well as when 2 or more hats were sold.
+-- Case statements were used to gather total revenue of sale hats when only 1 hat was sold as well as when 2 or more hats were sold.
 QtyCase AS (
     SELECT  
         Date,
@@ -380,7 +379,8 @@ QtyCase AS (
         Date,
         Location
 )
--- Our final output shows separate columns for sales of the hat sale section when quantity = 1 and when quantity is 2+ per date and location
+-- Our final output shows separate columns for sales of the hat sale section when quantity = 1 and when quantity is 2+ per day and location
+
 SELECT
     Date,
     Location,
