@@ -1,14 +1,9 @@
 ## This Page Includes:
 * Analysis Project Overview
-* Dataset & Preparation Steps Taken
+* Dataset Details
 * SQL Queries Used
 
-<br>
-
-To view regression model setup and execution details, click [here](./Regression-Setup-&-Execution.md)
-
-
-To view the full executive report click [here](https://docs.google.com/document/d/13WyTioV-JLnFqsjsWH5RaKfD5tZsQBvFkX1OmZiTm1Y/edit?tab=t.0)
+To view regression model setup and execution details, click [here](./Regression-Setup-&-Execution.md). To view the full executive report, click [here](https://docs.google.com/document/d/13WyTioV-JLnFqsjsWH5RaKfD5tZsQBvFkX1OmZiTm1Y/edit?tab=t.0).
 
 <br>
 
