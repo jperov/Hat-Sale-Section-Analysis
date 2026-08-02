@@ -5,6 +5,8 @@ Our main goal was to determine if there was a statistically significant decrease
 
 <br>
 
+![original_data](images/original_data.png)
+
 ## Methods and Steps Taken:
 
 1. Our data began as item level transactions of all products from 2024 through 2025.
