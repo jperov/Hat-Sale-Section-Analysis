@@ -1,3 +1,5 @@
+# Hat Sale Section Analysis
+
 ## This Page Includes:
 * Analysis Project Overview
 * Dataset Details
