@@ -134,7 +134,7 @@ ORDER BY
 
 **Example Output:**
 
-<img src="images/Example_Data_Daily_Sale_Hat_Revenue.PNG" width="700" height="700" />
+<img src="images/Example_Data_Daily_Sale_Hat_Revenue.PNG" width="300" height="300" />
 
 <br>
 <br>
@@ -199,7 +199,7 @@ ORDER BY
 
 **Example Output:**
 
-<img src="images/Example_Data_Full_Price_Hats.PNG" width="700" height="700" />
+<img src="images/Example_Data_Full_Price_Hats.PNG" width="600" height="600" />
 
 <br>
 <br>
@@ -224,7 +224,7 @@ ORDER BY
 
 **Example Output:**
 
-<img src="images/Example_Data_Full_Price_Hat_Revenue.PNG" width="700" height="700" />
+<img src="images/Example_Data_Full_Price_Hat_Revenue.PNG" width="300" height="300" />
 
 <br>
 <br>
@@ -304,7 +304,7 @@ ORDER BY
 
 **Example Output:**
 
-<img src="images/Example_Data_Avg_Sale_Section_Rrevenue_Per_Month.PNG" width="700" height="700" />
+<img src="images/Example_Data_Avg_Sale_Section_Rrevenue_Per_Month.PNG" width="200" height="200" />
 
 <br>
 <br>
@@ -360,7 +360,7 @@ ORDER BY
 
 **Example Output:**
 
-<img src="Example_Data_Count_Of_2+_Hat_Tickets.PNG" width="700" height="700" />
+<img src="Example_Data_Count_Of_2+_Hat_Tickets.PNG" width="300" height="300" />
 
 <br>
 <br>
@@ -412,7 +412,7 @@ ORDER BY
 
 **Example Output:**
 
-<img src="Example_Data_2+_Hat_Ticket_Revenue.PNG" width="700" height="700" />
+<img src="Example_Data_2Plus_Hat_Ticket_Revenue.PNG" width="300" height="300" />
 
 <br>
 <br>
