@@ -197,7 +197,6 @@ ORDER BY
 SELECT
   Date,
   Location,
-  Category,
   ROUND(SUM(Net_Sales),2) as Net_sales
 FROM
   Portfolio_Data.FullPriceSales 
