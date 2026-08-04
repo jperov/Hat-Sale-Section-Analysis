@@ -224,7 +224,7 @@ ORDER BY
 
 **Example Output:**
 
-<img src="images/Example_Data_Full_Price_Hat_Revenue.PNG" width="300" height="300" />
+<img src="images/Example_Data_Full_Price_Hat_Revenue.PNG" width="200" height="200" />
 
 <br>
 <br>
@@ -360,7 +360,7 @@ ORDER BY
 
 **Example Output:**
 
-<img src="images/Example_Data_Multi_Item_Purchases_Tickets.PNG" width="400" height="400" />
+<img src="images/Example_Data_Multi_Item_Purchases_Tickets.PNG" width="300" height="300" />
 
 <br>
 <br>
