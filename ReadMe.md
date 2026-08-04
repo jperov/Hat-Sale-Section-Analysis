@@ -203,12 +203,10 @@ FROM
   Portfolio_Data.FullPriceSales 
 GROUP BY
   Date,
-  Location,
-  Category
+  Location
 ORDER BY
   Date, 
-  Location,
-  Category;
+  Location;
 ```
 
 
