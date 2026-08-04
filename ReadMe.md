@@ -360,7 +360,7 @@ ORDER BY
 
 **Example Output:**
 
-<img src="Example_Data_Count_Of_TwoPlus_Hat_Tickets.PNG" width="300" height="300" />
+<img src="images/Example_Data_Multi_Item_Purchases_Tickets.PNG" width="400" height="400" />
 
 <br>
 <br>
@@ -412,7 +412,7 @@ ORDER BY
 
 **Example Output:**
 
-<img src="Example_Data_TwoPlus_Hat_Ticket_Revenue.PNG" width="300" height="300" />
+<img src="images/Example_Data_Multi_Item_Purchases_Revenue.PNG" width="400" height="400" />
 
 <br>
 <br>
