@@ -107,6 +107,11 @@ ORDER BY
     Date;
 ```
 
+
+**Example Output:**
+
+<img src="images/Example_Sale_Hat_Data.PNG" width="700" height="700" />
+
 <br>
 <br>
 
@@ -126,6 +131,11 @@ ORDER BY
   Date, 
   Location;
 ```
+
+**Example Output:**
+
+<img src="images/Example_Data_Daily_Sale_Hat_Revenue.PNG" width="700" height="700" />
+
 <br>
 <br>
 
@@ -187,6 +197,10 @@ ORDER BY
     Date;
 ```
 
+**Example Output:**
+
+<img src="images/Example_Data_Full_Price_Hats.PNG" width="700" height="700" />
+
 <br>
 <br>
 
@@ -208,6 +222,9 @@ ORDER BY
   Location;
 ```
 
+**Example Output:**
+
+<img src="images/Example_Data_Full_Price_Hat_Revenue.PNG" width="700" height="700" />
 
 <br>
 <br>
@@ -247,6 +264,10 @@ GROUP BY
 ORDER BY Date;
 ```
 
+**Example Output:**
+
+<img src="images/Example_Regression_Setup_Data.PNG" width="700" height="700" />
+
 <br>
 <br>
 
@@ -280,6 +301,10 @@ ORDER BY
     MonthNum;
 ```
 
+
+**Example Output:**
+
+<img src="images/Example_Data_Avg_Sale_Section_Rrevenue_Per_Month.PNG" width="700" height="700" />
 
 <br>
 <br>
@@ -333,6 +358,10 @@ ORDER BY
     Location;
 ```
 
+**Example Output:**
+
+<img src="Example_Data_Count_Of_2+_Hat_Tickets.PNG" width="700" height="700" />
+
 <br>
 <br>
 
@@ -381,3 +410,9 @@ ORDER BY
     Location;
 ```
 
+**Example Output:**
+
+<img src="Example_Data_2+_Hat_Ticket_Revenue.PNG" width="700" height="700" />
+
+<br>
+<br>
