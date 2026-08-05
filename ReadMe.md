@@ -16,7 +16,7 @@ In August 2025, the pricing model of the hat sale section was changed company-wi
 
 Sales performance data across all stores was analyzed to determine whether this change had an impact on revenue. SQL was used for data gathering, Tableau for visualization and analysis, and Excel for regression modeling. 
 
-The analysis identified a significant decline in sale hat section revenue following the change and found the primary driver to be the removal of the BOGO pricing model, which reduced the number of multi-item purchases that were fueling sales.
+The analysis identified a significant decline in sale hat section revenue following the change and found the primary driver to be the removal of the BOGO pricing model, which reduced the number of multi-hat purchases that were fueling sales.
 
 Insights and recommendations were compiled into a report and presented to leadership, influencing the decision to revise the pricing model company-wide. Performance monitoring was put in place and showed a sustained 25% increase in monthly revenue. This success led to the model being permanently adopted.
 
