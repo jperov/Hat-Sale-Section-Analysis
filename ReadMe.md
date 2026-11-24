@@ -86,7 +86,6 @@ Categories AS (
             'Special_Product1', 'Special_Product2', 'Special_Product3')
             OR Discount > 0
         )
-        AND Net_Sales >= 9.99
 )
 
 
