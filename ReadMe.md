@@ -155,7 +155,7 @@ WITH Cleaned_Data AS (
         Date,
         `Ticket #` AS Ticket_Id,
         Location,
-        REPLACE(`Product Name`, ' ', '_') AS Product_Name,
+        REPLACE(REPLACE(TRIM(`Product Name`), ' ', '_'), '/', '') AS Product_Name,
         REPLACE(REPLACE(TRIM(Category), ' ', '_'), '/', '') AS Category,
         Quantity,
         Tax,
