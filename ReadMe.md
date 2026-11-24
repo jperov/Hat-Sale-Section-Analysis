@@ -107,7 +107,7 @@ SELECT
 FROM
     Categories
 WHERE
-    Net_Sales < (Quantity * 30)
+    Net_Sales <= (Quantity * 30)
 
 ORDER BY
     Date;
@@ -195,7 +195,7 @@ SELECT
 FROM
     Categories
 WHERE
-    Net_Sales > (Quantity * 30)
+    Net_Sales >= (Quantity * 30)
     OR (
         Product_Name IN (
             'Special_Product1', 'Special_Product2', 'Special_Product3')
