@@ -55,7 +55,7 @@ WITH Cleaned_Data AS (
         Date,
         `Ticket #` AS Ticket_Id,
         Location,
-        REPLACE(`Product Name`, ' ', '_') AS Product_Name,
+        REPLACE(REPLACE(TRIM(`Product Name`), ' ', '_'), '/', '') AS Product_Name,
         REPLACE(REPLACE(TRIM(Category), ' ', '_'), '/', '') AS Category,
         Quantity,
         Tax,
@@ -68,8 +68,10 @@ WITH Cleaned_Data AS (
         (LOWER(Product_Name) <> 'gift_card')
 ),
 
-
--- This block filters for hat categories only, and filters out product names that have a normal price point that is the same as our sale section price while preserving instances where those products were discounted.
+/*
+This block filters for hat categories only, and filters out product names that have a normal
+price point that is the same as our sale section price while preserving instances where those products were discounted.
+*/
 Categories AS (
     SELECT
         *
@@ -88,8 +90,12 @@ Categories AS (
 )
 
 
--- We found that our dataset's ‘discount’ field often shows $0 for items that are real sale hat transactions, making the field unreliable to filter for sale hats. Due to this limitation, we had to find another way to isolate sale hat data. The solution was to filter our results to only show data where the total sales at each quantity sold could only be at or lower than the sale section price point ("Net_Sales < (Quantity * 42)").
-
+/*
+We found that our dataset's ‘discount’ field often shows $0 for items that are real sale hat transactions,
+making the field unreliable to filter for sale hats. Due to this limitation, we had to find another way to isolate sale hat data.
+The solution was to filter our results to only show data where the total sales at each quantity sold could only be at or lower
+than the sale section price point ("Net_Sales < (Quantity * 42)").
+*/
 SELECT
     Date,
     Location,
@@ -174,8 +180,10 @@ Categories AS (
             'SNAPBACK', 'ROPER', 'A_FRAME', 'BUCKET', 'HATS',
             'UNSTRUCTURED_ADJ', 'FITTED', 'FLEXONE_FITS', 'STRUCTURED_ADJ', 'VISOR')
 )
--- Due to our discount column frequently showing $0 even for sale items, we couldn't use it to reliably isolate full-price hats. The solution was to filter our data to only show items that had a sale price that was above the sale section threshold.
-
+/*
+Due to our discount column frequently showing $0 even for sale items, we couldn't use it to reliably isolate full-price hats.
+The solution was to filter our data to only show items that had a sale price that was above the sale section threshold.
+*/
 SELECT
     Date,
     Location,
@@ -232,8 +240,11 @@ ORDER BY
 ### Setting Up Regression Model 
 ```SQL
 
--- The purpose of this query was to gather the variables needed for our regression model to determine whether sale hat section revenue meaningfully declined after the pricing model change in August while keeping seasonality constant.
-
+/*
+The purpose of this query was to gather the variables needed for our regression model
+to determine whether sale hat section revenue meaningfully declined after the pricing model change
+in August while keeping seasonality constant.
+*/
 
 SELECT
     Date,
@@ -313,8 +324,10 @@ ORDER BY
 
 ### Tickets With 2+ Sale Hats 
 ```SQL
--- First, we isolated transactions containing 2 or more sale hats by filtering our sale hat sales dataset to only show rows of sales that occurred when the quantity of the ticket is two or more.
-
+/*
+First, we isolated transactions containing 2 or more sale hats by filtering our sale hat sales dataset
+to only show rows of sales that occurred when the quantity of the ticket is two or more.
+*/
 WITH TwoPlusHatTickets AS (
     SELECT
         Ticket_Id,
