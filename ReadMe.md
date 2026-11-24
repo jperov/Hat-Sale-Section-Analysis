@@ -240,9 +240,8 @@ ORDER BY
 ```SQL
 
 /*
-The purpose of this query was to gather the variables needed for our regression model
-to determine whether sale hat section revenue meaningfully declined after the pricing model change
-in August while keeping seasonality constant.
+The purpose of this query was to gather the variables needed for our regression model to determine whether
+sale hat section revenue meaningfully declined after the pricing model change in August while keeping seasonality constant.
 */
 
 SELECT
