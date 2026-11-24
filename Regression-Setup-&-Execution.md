@@ -15,7 +15,7 @@ Our main goal was to determine if there was a statistically significant decrease
 
 <br>
 
-2. We then created a SQL query to gather the variables used in the regression model. Fields made and their purposes are outlined below:
+2. We then created a SQL query to gather the variables used in the regression model. Fields used and their purposes are outlined below:
 
     1. **Date:**  Each day from January 2024 through 2025.
 
