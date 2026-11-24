@@ -94,7 +94,7 @@ Categories AS (
 We found that our dataset's ‘discount’ field often shows $0 for items that are real sale hat transactions,
 making the field unreliable to filter for sale hats. Due to this limitation, we had to find another way to isolate sale hat data.
 The solution was to filter our results to only show data where the total sales at each quantity sold could only be at or lower
-than the sale section price point ("Net_Sales < (Quantity * 42)").
+than the sale section price point ("Net_Sales < (Quantity * 30)").
 */
 SELECT
     Date,
@@ -107,7 +107,7 @@ SELECT
 FROM
     Categories
 WHERE
-    Net_Sales < (Quantity * 42)
+    Net_Sales < (Quantity * 30)
 
 ORDER BY
     Date;
@@ -195,7 +195,7 @@ SELECT
 FROM
     Categories
 WHERE
-    Net_Sales > (Quantity * 42)
+    Net_Sales > (Quantity * 30)
     OR (
         Product_Name IN (
             'Special_Product1', 'Special_Product2', 'Special_Product3')
